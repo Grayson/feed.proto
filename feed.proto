@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+message Feed {
+	string version = 1;
+	string title = 2;
+	string home_page_url = 3;
+	string feed_url = 4;
+	string description = 5;
+	string user_comment = 6;
+	string next_url = 7;
+	string icon = 8;
+	string favicon = 9;
+	Author author = 10;
+	bool expired = 11;
+	repeated Hub hubs = 12;
+	repeated Item items = 13;
+}
+
+message Author {
+	string name = 1;
+	string url = 2;
+	string avatar = 3;
+}
+
+message Hub {
+	string type = 1;
+	string url = 2;
+}
+
+message Item {
+	string id = 1;
+	string url = 2;
+	string external_url = 3;
+	string title = 4;
+	string content_html = 5;
+	string content_text = 6;
+	string summary = 7;
+	string image = 8;
+	string banner_image = 9;
+	string date_published = 10;
+	string date_modified = 11;
+	Author author = 12;
+	repeated string tags = 13;
+	repeated Attachment attachments = 14;
+}
+
+message Attachment {
+	string url = 1;
+	string mime_type = 2;
+	string title = 3;
+	uint64 size_in_bytes = 4;
+	uint64 duration_in_seconds = 5;
+}
